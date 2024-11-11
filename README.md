@@ -21,10 +21,7 @@ This project is an embedded system for monitoring and managing temperature condi
 - **Emergency State**: For temperatures above 40°C, the system activates the Emergency LED, sounds the buzzer, and fully opens the ventilation by setting the servo to 180°. The system stays in this state until the Reset button is pressed.
 
 ### State Diagram
-[Insert State Diagram Here]
-
-### Schematic Diagram
-[Insert Hardware Schematic Here]
+[Link to the Diagram](https://github.com/AmeenMS03/Temperature-Monitoring-System/blob/main/FSM%20State%20Diagram.png)
 
 ## Code
 The code is written in Python and uses the following libraries:
