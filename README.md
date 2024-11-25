@@ -34,13 +34,13 @@ The system smoothly transitions between states based on real-time inputs and tem
 ## Installation
 1. Clone the repository:
 ```bash
-   git clone https://github.com/YourGitHubUsername/Factory-Temperature-Monitoring-System.git
+git clone https://github.com/YourGitHubUsername/Factory-Temperature-Monitoring-System.git
 ```
 2. Install the required Python libraries:
-  ```bash
-  pip install gpiozero guizero tkgpio
-  ```
+```bash
+pip install gpiozero guizero tkgpio
+```
 3. Run the main code:
-  ```bash
-  python main.py
-  ```
+```bash
+python main.py
+```
