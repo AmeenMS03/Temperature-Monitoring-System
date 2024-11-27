@@ -4,30 +4,29 @@ from tkgpio import TkCircuit
 from enum import Enum
 import time
 
-# Configuration for TkCircuit visualization
-configuration = {
-    "width": 800,
-    "height": 600,
-    "leds": [
-        {"pin": 17, "name": "On LED", "x": 50, "y": 50},
-        {"pin": 27, "name": "Emergency LED", "x": 150, "y": 50}
-    ],
-    "buttons": [
-        {"pin": 22, "name": "Start Button", "x": 50, "y": 150},
-        {"pin": 23, "name": "Reset Button", "x": 150, "y": 150}
-    ],
-    "buzzers": [
-        {"pin": 24, "name": "Buzzer", "x": 50, "y": 250}
-    ],
-    "servos": [
-        {"pin": 18, "name": "Servo Motor", "x": 150, "y": 250, "min_angle": 0, "max_angle": 180}
-    ]
-}
-
-circuit = TkCircuit(configuration)
+# Configuration for TkCircuit visualization (Uncomment them if we you want to see Software Visualized)
+# configuration = {
+#     "width": 800,
+#     "height": 600,
+#     "leds": [
+#         {"pin": 17, "name": "On LED", "x": 50, "y": 50},
+#         {"pin": 27, "name": "Emergency LED", "x": 150, "y": 50}
+#     ],
+#     "buttons": [
+#         {"pin": 22, "name": "Start Button", "x": 50, "y": 150},
+#         {"pin": 23, "name": "Reset Button", "x": 150, "y": 150}
+#     ],
+#     "buzzers": [
+#         {"pin": 24, "name": "Buzzer", "x": 50, "y": 250}
+#     ],
+#     "servos": [
+#         {"pin": 18, "name": "Servo Motor", "x": 150, "y": 250, "min_angle": 0, "max_angle": 180}
+#     ]
+# }
+# circuit = TkCircuit(configuration)
+# @circuit.run
 
 # Main function to control the states
-@circuit.run
 def main():
     class State(Enum):
         idle = 1
@@ -62,11 +61,7 @@ def main():
         nonlocal current
         current = State.idle
 
-    app = App("Temperature Monitor", width=250, height=300)
-    Text(app, text="Adjust Temperature")
-    temp_slider = Slider(app, start=0, end=50, command=update_temperature)  
-    temp_slider.value = 0
-
+    # Detect if the hardware/software buttons are pressed 
     start_button.when_pressed = start_monitoring
     reset_button.when_pressed = reset_system
 
@@ -126,7 +121,5 @@ def main():
             if reset_button.is_pressed:
                 current = State.idle
 
-        app.update() 
         time.sleep(0.1)
 
-    app.display()
